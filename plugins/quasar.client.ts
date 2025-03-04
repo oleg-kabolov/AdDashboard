@@ -2,6 +2,7 @@ import {
   Quasar,
   QInput,
   QBtn,
+  QBtnToggle,
   QSelect,
   QAvatar,
   QIcon,
@@ -13,14 +14,14 @@ import {
 } from "quasar";
 import { defineNuxtPlugin } from "#app";
 
-import iconSet from "quasar/icon-set/fontawesome-v6";
-import "@quasar/extras/fontawesome-v6/fontawesome-v6.css";
+import "@quasar/extras/material-icons/material-icons.css";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(Quasar, {
     components: {
       QInput,
       QBtn,
+      QBtnToggle,
       QSelect,
       QAvatar,
       QList,
@@ -33,6 +34,5 @@ export default defineNuxtPlugin((nuxtApp) => {
       ClosePopup,
     },
     plugins: {},
-    iconSet: iconSet,
   });
 });

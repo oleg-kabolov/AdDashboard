@@ -1,71 +1,48 @@
 <script setup lang="ts">
-const text = ref("");
+import Search_bar from "~/UI/Search_bar.vue";
+import Language_select from "~/UI/Language_select.vue";
+import Dark_theme from "~/UI/Dark_theme.vue";
+import Notification from "~/UI/Notification.vue";
+import UserProfileSigned from "~/UI/UserProfileSigned.vue";
 </script>
 
 <template>
   <div>
-    <div class="search-wrapper">
-      <div class="q-gutter-y-md column" style="width: 300px; max-width: 100%">
-        <q-input
-          dark
-          outlined
-          placeholder="Placeholder"
-          v-model="text"
-          input-class="text-right"
-          class="q-ml-md"
-        >
-          <template v-slot:append>
-            <q-icon
-              v-if="text !== ''"
-              name="close"
-              @click="text = ''"
-              class="cursor-pointer"
-            />
-            <q-icon
-              v-else
-              name="clear"
-              class="cursor-pointer"
-              @click="text = ''"
-            />
-          </template>
-        </q-input>
+    <header
+      class="header col-md-10 row no-wrap justify-between items-center q-px-md"
+    >
+      <div class="search-wrapper col-md-6">
+        <Search_bar />
       </div>
-    </div>
-    <div class="user-buttons">
-      <q-btn round>
-        <q-avatar size="42px">
-          <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-        </q-avatar>
-      </q-btn>
-      <q-btn-dropdown round>
-        <q-list>
-          <q-item clickable v-close-popup>
-            <q-item-section>
-              <q-avatar size="42px">
-                <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-              </q-avatar>
-            </q-item-section>
-          </q-item>
+      <div class="user-buttons row items-center justify-end col-md-4">
+        <div class="user-language-btn col-2 q-mr-xs">
+          <Language_select />
+        </div>
+        <div class="dark-mode-btn col-md-2 row no-wrap items-center q-mr-lg">
+          <Dark_theme />
 
-          <q-item clickable v-close-popup>
-            <q-item-section>
-              <q-avatar size="42px">
-                <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-              </q-avatar>
-            </q-item-section>
-          </q-item>
-
-          <q-item clickable v-close-popup>
-            <q-item-section>
-              <q-avatar size="42px">
-                <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-              </q-avatar>
-            </q-item-section>
-          </q-item>
-        </q-list>
-      </q-btn-dropdown>
-    </div>
+          <div class="notification-btn col-md-2">
+            <Notification />
+          </div>
+        </div>
+        <div class="user-avatar-btn col-md-1 q-mr-lg">
+          <UserProfileSigned />
+        </div>
+      </div>
+    </header>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+:deep(.lang-button .q-icon) {
+  font-size: 3em;
+  transform: none;
+}
+:deep(.lang-button .q-icon img) {
+  border-radius: 50%;
+}
+:deep(.dark-mode-btn),
+:deep(.notification-btn) {
+  color: #3a3541de !important;
+}
+</style>
