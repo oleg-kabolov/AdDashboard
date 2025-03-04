@@ -1,9 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
-    <NuxtPage />
-  </div>
+  <div class="sidebar">sidebar</div>
 </template>
-
-<style scoped></style>
