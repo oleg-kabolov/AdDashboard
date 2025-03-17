@@ -4,6 +4,7 @@ import Language_select from "~/UI/Language_select.vue";
 import Dark_theme from "~/UI/Dark_theme.vue";
 import Notification from "~/UI/Notification.vue";
 import UserProfileSigned from "~/UI/UserProfileSigned.vue";
+import AuthFormContainer from "~/components/AuthFormContainer.vue";
 </script>
 
 <template>
@@ -25,10 +26,11 @@ import UserProfileSigned from "~/UI/UserProfileSigned.vue";
             <Notification />
           </div>
         </div>
-        <div class="user-avatar-btn col-md-1 q-mr-lg">
+        <div class="user-avatar -btn col-md-1 q-mr-lg">
           <UserProfileSigned />
         </div>
       </div>
+      <AuthFormContainer />
     </header>
   </div>
 </template>

@@ -1,10 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const toogle1 = ref<boolean>(false);
+</script>
 
 <template>
   <div>
-    <q-toogle>
-      <q-icon size="38px" name="o_notifications" />
-    </q-toogle>
+    <q-toggle v-model="toogle1" color="yellow" label="On Left" left-label />
+    <q-icon size="38px" name="o_notifications" />
   </div>
 </template>
 

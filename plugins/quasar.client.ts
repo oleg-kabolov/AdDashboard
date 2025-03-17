@@ -1,13 +1,17 @@
 import {
   Quasar,
+  useQuasar,
   QInput,
   QBtn,
   QBtnToggle,
+  QToggle,
   QSelect,
   QAvatar,
   QIcon,
+  QForm,
   QList,
   QItem,
+  QItemLabel,
   QBtnDropdown,
   QItemSection,
   ClosePopup,
@@ -19,19 +23,27 @@ import "@quasar/extras/material-icons/material-icons.css";
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(Quasar, {
     components: {
+      Quasar,
       QInput,
       QBtn,
       QBtnToggle,
+      QToggle,
       QSelect,
       QAvatar,
+      QIcon,
+      QForm,
       QList,
       QItem,
+      QItemLabel,
       QBtnDropdown,
       QItemSection,
-      QIcon,
     },
     directives: {
       ClosePopup,
+      useQuasar,
+    },
+    methods: {
+      useQuasar,
     },
     plugins: {},
   });
