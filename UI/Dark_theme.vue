@@ -1,10 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const toogle2 = ref<boolean>(false);
+</script>
 
 <template>
   <div>
-    <q-toogle>
-      <q-icon size="38px" name="o_dark_mode_outlined" />
-    </q-toogle>
+    <q-toggle v-model="toogle2" color="yellow" label="On Left" left-label />
+    <q-icon size="38px" name="o_dark_mode_outlined" />
   </div>
 </template>
 

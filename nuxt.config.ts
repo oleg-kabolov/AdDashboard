@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   devServer: {
     port: 3000,
   },
+  ssr: false,
   app: {
     baseURL: "/",
     head: {
@@ -20,6 +21,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+  plugins: ["~/plugins/firebase.client.ts", "~/plugins/quasar.client.ts"],
   // runtimeConfig: {
   //   public: {
   //     apiBase: "", // Убери 'http://localhost:3000', если он там есть
