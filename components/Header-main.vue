@@ -1,10 +1,19 @@
 <script setup lang="ts">
 import Search_bar from "~/UI/Search_bar.vue";
 import Language_select from "~/UI/Language_select.vue";
-import Dark_theme from "~/UI/Dark_theme.vue";
+import DarkThemeContainer from "./DarkThemeContainer.vue";
 import Notification from "~/UI/Notification.vue";
-import UserProfileSigned from "~/UI/UserProfileSigned.vue";
+import UserProfileMenu from "~/UI/UserProfileMenu.vue";
 import AuthFormContainer from "~/components/AuthFormContainer.vue";
+
+const showAuthForm = ref<boolean>(false);
+
+const handleShowAuthForm = () => {
+  showAuthForm.value = true;
+};
+const handleHideAuthForm = () => {
+  showAuthForm.value = false;
+};
 </script>
 
 <template>
@@ -20,17 +29,21 @@ import AuthFormContainer from "~/components/AuthFormContainer.vue";
           <Language_select />
         </div>
         <div class="dark-mode-btn col-md-2 row no-wrap items-center q-mr-lg">
-          <Dark_theme />
+          <DarkThemeContainer />
 
           <div class="notification-btn col-md-2">
             <Notification />
           </div>
         </div>
         <div class="user-avatar -btn col-md-1 q-mr-lg">
-          <UserProfileSigned />
+          <UserProfileMenuContainer @openAuthForm="handleShowAuthForm" />
         </div>
       </div>
-      <AuthFormContainer />
+      <AuthFormContainer
+        v-if="showAuthForm"
+        @closeAuthForm="handleHideAuthForm"
+        @openAuthForm="handleHideAuthForm"
+      />
     </header>
   </div>
 </template>

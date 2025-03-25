@@ -17,6 +17,7 @@
   "devDependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@quasar/extras": "^1.16.15",
+    "animate.css": "^4.1.1",
     "firebase": "^11.4.0",
     "pinia": "^3.0.1",
     "prettier": "3.4.2",

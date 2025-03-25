@@ -21,7 +21,11 @@ export default defineNuxtConfig({
       ],
     },
   },
-  plugins: ["~/plugins/firebase.client.ts", "~/plugins/quasar.client.ts"],
+  plugins: [
+    "~/plugins/firebase.client.ts",
+    "~/plugins/quasar.client.ts",
+    "~/plugins/pinia.client.ts",
+  ],
   // runtimeConfig: {
   //   public: {
   //     apiBase: "", // Убери 'http://localhost:3000', если он там есть
@@ -57,6 +61,7 @@ export default defineNuxtConfig({
     "quasar/dist/quasar.prod.css", // Подключение базовых стилей Quasar
     "@quasar/extras/material-icons/material-icons.css",
     "@quasar/extras/material-icons-outlined/material-icons-outlined.css", // Material Icons Outline
+    "animate.css/animate.min.css",
   ],
 
   build: {
