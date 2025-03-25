@@ -8,6 +8,7 @@ export const signUp = async (
 ): Promise<void> => {
   try {
     await createUserWithEmailAndPassword(auth, email, password);
+    console.log(Promise);
     navigateTo("/userProfile");
   } catch (error: unknown) {
     if (error instanceof Error) {

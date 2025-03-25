@@ -14,6 +14,7 @@ import {
   QItemLabel,
   QBtnDropdown,
   QItemSection,
+  QSkeleton,
   ClosePopup,
 } from "quasar";
 import { defineNuxtPlugin } from "#app";
@@ -36,6 +37,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       QItem,
       QItemLabel,
       QBtnDropdown,
+      QSkeleton,
       QItemSection,
     },
     directives: {

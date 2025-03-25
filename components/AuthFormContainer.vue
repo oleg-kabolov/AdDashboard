@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import { defineEmits } from "vue";
 import { useQuasar } from "quasar";
 import Authform from "~/UI/Authform.vue";
-import { signUp } from "~/api/auth";
+import { createUserInDB } from "~/api/auth";
 
 const $q = useQuasar();
+
+const emit = defineEmits<{
+  (e: "closeAuthForm"): void;
+}>();
 
 // Состояние формы
 const email = ref<string>("");
@@ -16,16 +21,20 @@ const updatePassword = (newValue: string): void => {
   password.value = newValue; // Обновляем реактивное состояние
 };
 
-// Бизнес-логика submit
-const handleSubmit = async () => {
-  // $q.notify({
-  //   color: "green-4",
-  //   textColor: "white",
-  //   icon: "cloud_done",
-  //   message: "Submitted",
-  // });
+const closeAuthForm = () => {
+  emit("closeAuthForm");
+};
 
-  await signUp(email.value, password.value);
+// Бизнес-логика submit
+const handleSubmit = () => {
+  $q.notify({
+    color: "green-4",
+    textColor: "white",
+    icon: "cloud_done",
+    message: "Submitted",
+  });
+
+  // await createUserInDB(email.value, password.value);
 };
 
 // Бизнес-логика reset
@@ -44,6 +53,7 @@ const handleReset = () => {
       @update:password="updatePassword"
       @submit="handleSubmit"
       @reset="handleReset"
+      @closeAuthForm="closeAuthForm"
     ></Authform>
   </div>
 </template>
